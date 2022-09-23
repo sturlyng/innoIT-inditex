@@ -1,0 +1,29 @@
+# -----------------------------------
+# Server Configuration
+# -----------------------------------
+server:
+  port: 9091
+
+# -----------------------------------
+# Spring Configuration
+# -----------------------------------
+spring:
+  profiles:
+    active: local
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: 22
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+    hibernate.ddl-auto: none
+    #spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+    #spring.jpa.defer-datasource-initialization: true
+    #spring.jpa.hibernate.ddl-auto: none
+  h2:
+    console.enabled: true
+    console.path: /h2-console
+    console.settings.trace: false 
+    spring.h2.console.settings.web-allow-others: false
