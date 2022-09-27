@@ -1,6 +1,7 @@
 package com.inditex.endpoint.domain.entities;
 
-import java.time.Instant;
+import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Table;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.inditex.endpoint.boot.config.entity.RestConfig;
 
 import lombok.Builder;
 import lombok.Data;
@@ -17,32 +21,36 @@ import lombok.Data;
 @Table
 @Data
 @Builder
-public class Price {
+public class Price implements Serializable {
+
+	private static final long serialVersionUID = 4988414277982639616L;
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	@Column(nullable = false)
-    private Integer brand_id;
+    private Integer brandId;
 	
 	@Column(nullable = false)
-    private Instant start_date;
+	@DateTimeFormat(pattern = RestConfig.DATE_PATTERN)
+    private Date startDate;
 	
 	@Column(nullable = false)
-    private Instant end_date;
+	@DateTimeFormat(pattern = RestConfig.DATE_PATTERN)
+    private Date endDate;
 	
 	@Column(nullable = false)
-    private Integer price_list;
+    private Integer priceList;
 	
 	@Column(nullable = false)
-    private Integer product_id;
+    private Integer productId;
 	
 	@Column(nullable = false)
     private Integer priority;
 	
 	@Column(nullable = false)
-    private Integer price;
+    private Double price;
 	
 	@Column(nullable = false)
     private String curr;

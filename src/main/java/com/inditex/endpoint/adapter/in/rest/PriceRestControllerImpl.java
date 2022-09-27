@@ -1,6 +1,6 @@
 package com.inditex.endpoint.adapter.in.rest;
 
-import java.time.Instant;
+import java.util.Date;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,17 +12,16 @@ import com.inditex.endpoint.domain.aggregates.PriceAggregate;
 import com.inditex.endpoint.domain.entities.Price;
 import com.inditex.endpoint.domain.exception.PriceNotFoundException;
 
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 
-@RequiredArgsConstructor
-public class PriceRestServiceImpl implements PriceRestService {
+@AllArgsConstructor
+public class PriceRestControllerImpl implements PriceRestController {
 	
 	private final PriceAggregate priceAggregate;
-
+    
 	@Override
-	public ResponseEntity<PriceResponseDto> findPrice(Instant applicationDate, Integer productId,
+	public ResponseEntity<PriceResponseDto> findPrice(Date applicationDate, Integer productId,
 			Integer brandId) {
-		
 		
 		try {
 			Price price = priceAggregate.findPrice(applicationDate, productId, brandId);

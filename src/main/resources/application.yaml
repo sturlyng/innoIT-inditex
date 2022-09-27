@@ -3,6 +3,8 @@
 # -----------------------------------
 server:
   port: 9091
+  servlet:
+    context-path: /
 
 # -----------------------------------
 # Spring Configuration
@@ -10,6 +12,8 @@ server:
 spring:
   profiles:
     active: local
+  main:
+    allow-bean-definition-overriding: true
   datasource:
     url: jdbc:h2:mem:testdb
     username: sa
