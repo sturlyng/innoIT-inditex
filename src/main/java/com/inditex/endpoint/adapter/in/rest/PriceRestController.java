@@ -30,6 +30,7 @@ public interface PriceRestController {
 	@ApiOperation(value = "Finds price matching passed parameters")
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "successful operation", response = PriceResponseDto.class)
+			// Aqui podríamos añadir las respuestas para los posibles errores
 	})
 	ResponseEntity<PriceResponseDto> findPrice(
 			@RequestParam @DateTimeFormat(pattern = DATE_PATTERN) Date applicationDate,

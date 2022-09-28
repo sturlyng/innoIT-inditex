@@ -16,8 +16,8 @@ spring:
     allow-bean-definition-overriding: true
   datasource:
     url: jdbc:h2:mem:testdb
-    username: sa
-    password: 22
+    username: admin
+    password: admin
     driverClassName: org.h2.Driver
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect

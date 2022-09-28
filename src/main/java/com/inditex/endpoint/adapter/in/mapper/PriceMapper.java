@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 public class PriceMapper {
 	
 	public static PriceResponseDto toPriceResponseDto(Price price) {
+		
 		return PriceResponseDto.builder()
 				.productId(price.getProductId())
 				.brandId(price.getBrandId())
