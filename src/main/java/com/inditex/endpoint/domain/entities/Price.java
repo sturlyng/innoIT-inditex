@@ -18,7 +18,7 @@ import lombok.Builder;
 import lombok.Data;
 
 @Entity
-@Table
+@Table(name = "prices")
 @Data
 @Builder
 public class Price implements Serializable {
@@ -29,30 +29,30 @@ public class Price implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column(nullable = false)
+	@Column(nullable = false, name = "brand_id")
     private Integer brandId;
 	
-	@Column(nullable = false)
+	@Column(nullable = false, name = "start_date")
 	@DateTimeFormat(pattern = RestConfig.DATE_PATTERN)
     private Date startDate;
 	
-	@Column(nullable = false)
+	@Column(nullable = false, name = "end_date")
 	@DateTimeFormat(pattern = RestConfig.DATE_PATTERN)
     private Date endDate;
 	
-	@Column(nullable = false)
+	@Column(nullable = false, name = "price_list")
     private Integer priceList;
 	
-	@Column(nullable = false)
+	@Column(nullable = false, name = "product_id")
     private Integer productId;
 	
 	@Column(nullable = false)
     private Integer priority;
 	
-	@Column(nullable = false)
+	@Column(nullable = false, name = "brand_id")
     private Double price;
 	
-	@Column(nullable = false)
+	@Column(nullable = false, name = "brand_id")
     private String curr;
 	
 }
