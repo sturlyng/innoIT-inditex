@@ -6,11 +6,11 @@ import org.springframework.context.annotation.ComponentScan;
 
 /*import com.inditex.endpoint.adapter.in.rest.PriceRestService;
 */
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
+//import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @ComponentScan
-@EnableSwagger2
+//@EnableSwagger2
 public class EndpointBoot {
 
 	public static void main(String[] args) {

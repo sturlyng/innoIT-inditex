@@ -4,14 +4,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.inditex.endpoint.adapter.in.rest.PriceRestControllerImpl;
-import com.inditex.endpoint.domain.aggregates.PriceAggregate;
+import com.inditex.endpoint.domain.aggregates.PriceService;
 
 @Configuration
 public class PriceRestServiceConfig {
 	
 	@Bean
-	public PriceRestControllerImpl priceRestServiceImpl(final PriceAggregate priceAggregate) {
-		return new PriceRestControllerImpl(priceAggregate);
+	public PriceRestControllerImpl priceRestServiceImpl(final PriceService priceService) {
+		return new PriceRestControllerImpl(priceService);
 	}
 
 }

@@ -1,5 +1,5 @@
-# Duagon-Iberia-Inditex
-Technical test to Duagon-Iberia-Inditex
+# InnoIT-Inditex
+Technical test to InnoIT-Inditex
 
 #### Suposiciones
 - He puesto todos los campos numéricos como Integer(excepto el precio) porque para el ejemplo no vamos a tener valores tan grandes como para poner Long.

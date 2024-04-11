@@ -1,14 +1,11 @@
 package com.inditex.endpoint.domain.entities;
 
+import java.io.Serial;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Table;
-
+import jakarta.persistence.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -23,6 +20,7 @@ import lombok.Data;
 @Builder
 public class Price implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 4988414277982639616L;
 
 	@Id
@@ -33,12 +31,12 @@ public class Price implements Serializable {
     private Integer brandId;
 	
 	@Column(nullable = false, name = "start_date")
-	@DateTimeFormat(pattern = RestConfig.DATE_PATTERN)
-    private Date startDate;
+	//@DateTimeFormat(pattern = RestConfig.DATE_PATTERN)
+    private LocalDateTime startDate;
 	
 	@Column(nullable = false, name = "end_date")
-	@DateTimeFormat(pattern = RestConfig.DATE_PATTERN)
-    private Date endDate;
+	//@DateTimeFormat(pattern = RestConfig.DATE_PATTERN)
+    private LocalDateTime endDate;
 	
 	@Column(nullable = false, name = "price_list")
     private Integer priceList;
