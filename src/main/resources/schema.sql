@@ -5,7 +5,7 @@ CREATE TABLE prices (
     end_date TIMESTAMP NOT NULL,
     price_list INTEGER NOT NULL,
     product_id INTEGER NOT NULL,
-    priority INTEGER NOT NULL,
+    priority_order INTEGER NOT NULL,
     price DOUBLE NOT NULL,
     curr VARCHAR(3) NOT NULL,
     PRIMARY KEY (id)

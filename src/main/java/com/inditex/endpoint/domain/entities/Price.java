@@ -27,11 +27,9 @@ public class Price implements Serializable {
     private Integer brandId;
 	
 	@Column(nullable = false, name = "start_date")
-	//@DateTimeFormat(pattern = RestConfig.DATE_PATTERN)
     private LocalDateTime startDate;
 	
 	@Column(nullable = false, name = "end_date")
-	//@DateTimeFormat(pattern = RestConfig.DATE_PATTERN)
     private LocalDateTime endDate;
 	
 	@Column(nullable = false, name = "price_list")
@@ -40,13 +38,13 @@ public class Price implements Serializable {
 	@Column(nullable = false, name = "product_id")
     private Integer productId;
 	
-	@Column(nullable = false)
+	@Column(nullable = false, name = "priority_order")
     private Integer priority;
 	
-	@Column(nullable = false, name = "brand_id")
+	@Column(nullable = false, name = "price")
     private Double price;
 	
-	@Column(nullable = false, name = "brand_id")
+	@Column(nullable = false, name = "curr")
     private String curr;
 	
 }

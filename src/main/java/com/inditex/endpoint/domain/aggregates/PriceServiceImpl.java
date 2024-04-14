@@ -23,15 +23,10 @@ public class PriceServiceImpl implements PriceService {
 			throws PriceNotFoundException {
 		List<Price>  prices = priceRepository.findPrices(applicationDate, productId, brandId);
 
-		Price result = prices.stream()
-				.max(Comparator.comparing(Price::getPriceList))
-				.orElseThrow(NoSuchElementException::new);
+		return prices.stream()
+				.max(Comparator.comparing(Price::getPriority))
+				.orElseThrow(() -> new PriceNotFoundException("Price not found with these parameters"));
 
-		if (null != result) {
-			return result;
-		} else {
-			throw new PriceNotFoundException("Price not found with these parameters");
-		}
 	}
 
 }

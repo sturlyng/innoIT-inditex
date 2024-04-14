@@ -24,7 +24,7 @@ public class PriceMapper {
 					.startDate(startDate.toLocalDateTime())
 					.endDate(endDate.toLocalDateTime())
 					.price((Double) properties.get("price"))
-					.priority((Integer) properties.get("priority"))
+					.priority((Integer) properties.get("priority_order"))
 					.curr((String) properties.get("curr"))
 					.build();
 				return price;
