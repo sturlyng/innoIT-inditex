@@ -3,13 +3,9 @@ package com.inditex.endpoint.domain.entities;
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 import jakarta.persistence.*;
 import org.springframework.data.annotation.Id;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import com.inditex.endpoint.boot.config.entity.RestConfig;
 
 import lombok.Builder;
 import lombok.Data;

@@ -1,14 +1,12 @@
 package com.inditex.endpoint.adapter.in.rest;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 import com.inditex.endpoint.adapter.out.dto.PriceResponseDto;
 import com.inditex.endpoint.adapter.out.mapper.PriceMapper;
 import jakarta.validation.constraints.PositiveOrZero;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -24,8 +22,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import static com.inditex.endpoint.boot.config.entity.RestConfig.DATE_PATTERN;
-
 @RestController
 @RequestMapping("prices/v1")
 @AllArgsConstructor
@@ -37,7 +33,7 @@ public class PriceRestControllerImpl {
 
 	@GetMapping(value = "/price", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<PriceResponseDto> findPrice(
-			@RequestParam @DateTimeFormat(pattern = DATE_PATTERN) LocalDateTime applicationDate,
+			@RequestParam LocalDateTime applicationDate,
 			@RequestParam @PositiveOrZero Integer productId,
 			@RequestParam @PositiveOrZero Integer brandId) {
 

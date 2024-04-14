@@ -1,10 +1,7 @@
 package com.inditex.endpoint.domain.repositories;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
-import java.util.Map;
-
 import org.springframework.data.repository.Repository;
 
 import com.inditex.endpoint.domain.entities.Price;

@@ -8,10 +8,10 @@ import com.inditex.endpoint.domain.aggregates.PriceService;
 import com.inditex.endpoint.domain.repositories.PriceRepository;
 
 @Configuration
-public class PriceAggregateConfig {
+public class PriceServiceConfig {
 
 	@Bean
-	public PriceService priceAggregate(PriceRepository priceRepository) {
+	public PriceService priceService(PriceRepository priceRepository) {
 		return new PriceServiceImpl(priceRepository);
 	}
 	
