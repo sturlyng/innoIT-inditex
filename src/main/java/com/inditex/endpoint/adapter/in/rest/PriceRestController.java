@@ -11,7 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
-import com.inditex.endpoint.adapter.in.exception.RestNotFoundException;
 import com.inditex.endpoint.domain.aggregates.PriceService;
 import com.inditex.endpoint.domain.entities.Price;
 import com.inditex.endpoint.domain.exception.PriceNotFoundException;
@@ -25,9 +24,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("prices/v1")
 @AllArgsConstructor
-public class PriceRestControllerImpl {
+public class PriceRestController {
 
-	private static final Logger LOG = LoggerFactory.getLogger(PriceRestControllerImpl.class);
+	private static final Logger LOG = LoggerFactory.getLogger(PriceRestController.class);
 
 	private final PriceService priceService;
 
@@ -35,18 +34,14 @@ public class PriceRestControllerImpl {
 	public ResponseEntity<PriceResponseDto> findPrice(
 			@RequestParam LocalDateTime applicationDate,
 			@RequestParam @PositiveOrZero Integer productId,
-			@RequestParam @PositiveOrZero Integer brandId) {
+			@RequestParam @PositiveOrZero Integer brandId) throws PriceNotFoundException {
 
 		LOG.info("Init findPrice");
-		
-		try {
-			Price price = priceService.findPrice(applicationDate, productId, brandId);
-			PriceResponseDto response = PriceMapper.priceToPriceResponseDto(price);
-			LOG.info("findPrice completed");
-			return new ResponseEntity<>(response, HttpStatus.OK);
-		} catch (PriceNotFoundException e) {
-			throw new RestNotFoundException(e.getMessage());
-		}
+
+		Price price = priceService.findPrice(applicationDate, productId, brandId);
+		PriceResponseDto response = PriceMapper.priceToPriceResponseDto(price);
+		LOG.info("findPrice completed");
+		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 
 }

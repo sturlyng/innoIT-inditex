@@ -27,22 +27,23 @@ public class EndpointBootTests {
 	
 	@Autowired
 	protected TestRestTemplate restTemplate;
-	
-	@SuppressWarnings("deprecation")
+
 	@Test
 	void testCase1() throws ParseException {
 		
 		ResponseEntity<PriceResponseDto> response = restTemplate.getForEntity(
 				"http://localhost:" + port + "/prices/v1/price?applicationDate=2020-06-14T10:00:00&productId=35455&brandId=1",
 				PriceResponseDto.class);
+
+		PriceResponseDto responseBody = response.getBody();
 		
 		assertEquals(HttpStatus.OK, response.getStatusCode());
-		assertEquals(35455, response.getBody().getProductId());
-		assertEquals(1, response.getBody().getBrandId());
-		assertEquals(1, response.getBody().getPriceList());
-		assertEquals(LocalDateTime.parse("2020-06-14T00:00:00"), response.getBody().getStartDate());
-		assertEquals(LocalDateTime.parse("2020-12-31T23:59:59"), response.getBody().getEndDate());
-		assertEquals(35.50, response.getBody().getPrice());
+		assertEquals(35455, responseBody.getProductId());
+		assertEquals(1, responseBody.getBrandId());
+		assertEquals(1, responseBody.getPriceList());
+		assertEquals(LocalDateTime.parse("2020-06-14T00:00:00"), responseBody.getStartDate());
+		assertEquals(LocalDateTime.parse("2020-12-31T23:59:59"), responseBody.getEndDate());
+		assertEquals(35.50, responseBody.getPrice());
 		
 	}
 	
@@ -52,14 +53,16 @@ public class EndpointBootTests {
 		ResponseEntity<PriceResponseDto> response = restTemplate.getForEntity(
 				"http://localhost:" + port + "/prices/v1/price?applicationDate=2020-06-14T16:00:00&productId=35455&brandId=1",
 				PriceResponseDto.class);
+
+		PriceResponseDto responseBody = response.getBody();
 		
 		assertEquals(HttpStatus.OK, response.getStatusCode());
-		assertEquals(35455, response.getBody().getProductId());
-		assertEquals(1, response.getBody().getBrandId());
-		assertEquals(2, response.getBody().getPriceList());
-		assertEquals(LocalDateTime.parse("2020-06-14T15:00:00"), response.getBody().getStartDate());
-		assertEquals(LocalDateTime.parse("2020-06-14T18:30:00"), response.getBody().getEndDate());
-		assertEquals(25.45, response.getBody().getPrice());
+		assertEquals(35455, responseBody.getProductId());
+		assertEquals(1, responseBody.getBrandId());
+		assertEquals(2, responseBody.getPriceList());
+		assertEquals(LocalDateTime.parse("2020-06-14T15:00:00"), responseBody.getStartDate());
+		assertEquals(LocalDateTime.parse("2020-06-14T18:30:00"), responseBody.getEndDate());
+		assertEquals(25.45, responseBody.getPrice());
 		
 	}
 	
@@ -69,14 +72,16 @@ public class EndpointBootTests {
 		ResponseEntity<PriceResponseDto> response = restTemplate.getForEntity(
 				"http://localhost:" + port + "/prices/v1/price?applicationDate=2020-06-14T21:00:00&productId=35455&brandId=1",
 				PriceResponseDto.class);
+
+		PriceResponseDto responseBody = response.getBody();
 		
 		assertEquals(HttpStatus.OK, response.getStatusCode());
-		assertEquals(35455, response.getBody().getProductId());
-		assertEquals(1, response.getBody().getBrandId());
-		assertEquals(1, response.getBody().getPriceList());
-		assertEquals(LocalDateTime.parse("2020-06-14T00:00:00"), response.getBody().getStartDate());
-		assertEquals(LocalDateTime.parse("2020-12-31T23:59:59"), response.getBody().getEndDate());
-		assertEquals(35.50, response.getBody().getPrice());
+		assertEquals(35455, responseBody.getProductId());
+		assertEquals(1, responseBody.getBrandId());
+		assertEquals(1, responseBody.getPriceList());
+		assertEquals(LocalDateTime.parse("2020-06-14T00:00:00"), responseBody.getStartDate());
+		assertEquals(LocalDateTime.parse("2020-12-31T23:59:59"), responseBody.getEndDate());
+		assertEquals(35.50, responseBody.getPrice());
 		
 	}
 	
@@ -86,14 +91,16 @@ public class EndpointBootTests {
 		ResponseEntity<PriceResponseDto> response = restTemplate.getForEntity(
 				"http://localhost:" + port + "/prices/v1/price?applicationDate=2020-06-15T10:00:00&productId=35455&brandId=1",
 				PriceResponseDto.class);
+
+		PriceResponseDto responseBody = response.getBody();
 		
 		assertEquals(HttpStatus.OK, response.getStatusCode());
-		assertEquals(35455, response.getBody().getProductId());
-		assertEquals(1, response.getBody().getBrandId());
-		assertEquals(3, response.getBody().getPriceList());
-		assertEquals(LocalDateTime.parse("2020-06-15T00:00:00"), response.getBody().getStartDate());
-		assertEquals(LocalDateTime.parse("2020-06-15T11:00:00"), response.getBody().getEndDate());
-		assertEquals(30.50, response.getBody().getPrice());
+		assertEquals(35455, responseBody.getProductId());
+		assertEquals(1, responseBody.getBrandId());
+		assertEquals(3, responseBody.getPriceList());
+		assertEquals(LocalDateTime.parse("2020-06-15T00:00:00"), responseBody.getStartDate());
+		assertEquals(LocalDateTime.parse("2020-06-15T11:00:00"), responseBody.getEndDate());
+		assertEquals(30.50, responseBody.getPrice());
 		
 	}
 	
@@ -103,14 +110,16 @@ public class EndpointBootTests {
 		ResponseEntity<PriceResponseDto> response = restTemplate.getForEntity(
 				"http://localhost:" + port + "/prices/v1/price?applicationDate=2020-06-16T09:00:00&productId=35455&brandId=1",
 				PriceResponseDto.class);
+
+		PriceResponseDto responseBody = response.getBody();
 		
 		assertEquals(HttpStatus.OK, response.getStatusCode());
-		assertEquals(35455, response.getBody().getProductId());
-		assertEquals(1, response.getBody().getBrandId());
-		assertEquals(4, response.getBody().getPriceList());
-		assertEquals(LocalDateTime.parse("2020-06-15T16:00:00"), response.getBody().getStartDate());
-		assertEquals(LocalDateTime.parse("2020-12-31T23:59:59"), response.getBody().getEndDate());
-		assertEquals(38.95, response.getBody().getPrice());
+		assertEquals(35455, responseBody.getProductId());
+		assertEquals(1, responseBody.getBrandId());
+		assertEquals(4, responseBody.getPriceList());
+		assertEquals(LocalDateTime.parse("2020-06-15T16:00:00"), responseBody.getStartDate());
+		assertEquals(LocalDateTime.parse("2020-12-31T23:59:59"), responseBody.getEndDate());
+		assertEquals(38.95, responseBody.getPrice());
 		
 	}
 
