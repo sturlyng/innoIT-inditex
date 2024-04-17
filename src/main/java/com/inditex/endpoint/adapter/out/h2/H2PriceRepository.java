@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
+import com.inditex.endpoint.domain.exception.ErrorCatalog;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.inditex.endpoint.adapter.in.mapper.PriceMapper;
@@ -30,7 +31,8 @@ public class H2PriceRepository implements PriceRepository {
 			return PriceMapper.toPrices(filteredProperties);
 			
 		}catch (NoSuchElementException e) {
-			throw new PriceNotFoundException("Price not found with these parameters");
+			throw new PriceNotFoundException(ErrorCatalog.PRICE_NOT_FOUND.getCode(),
+					ErrorCatalog.PRICE_NOT_FOUND.getMessage());
 		}
 	}
 

@@ -1,14 +1,17 @@
 package com.inditex.endpoint.domain.exception;
 
+import lombok.Getter;
+
 import java.io.Serial;
 
+@Getter
 public class PriceNotFoundException extends RuntimeException {
 
-	@Serial
-	private static final long serialVersionUID = 4104695584451332907L;
+	private final String code;
 
-	public PriceNotFoundException(String message) {
+	public PriceNotFoundException(String code, String message) {
 		super(message);
+		this.code = code;
 	}
 	
 }

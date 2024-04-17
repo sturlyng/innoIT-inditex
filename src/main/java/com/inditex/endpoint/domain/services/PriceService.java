@@ -1,7 +1,6 @@
-package com.inditex.endpoint.domain.aggregates;
+package com.inditex.endpoint.domain.services;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 import com.inditex.endpoint.domain.entities.Price;
 import com.inditex.endpoint.domain.exception.PriceNotFoundException;
