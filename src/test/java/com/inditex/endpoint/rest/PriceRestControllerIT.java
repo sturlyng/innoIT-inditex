@@ -1,4 +1,4 @@
-package com.inditex.endpoint.adapter.in.rest;
+package com.inditex.endpoint.rest;
 
 import com.inditex.endpoint.BaseIntegratedTest;
 import com.inditex.endpoint.adapter.out.dto.PriceResponseDto;

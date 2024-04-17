@@ -18,11 +18,10 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(PriceNotFoundException.class)
     public ResponseEntity<Object> handlePriceNotFoundException (PriceNotFoundException exception) {
         final ErrorCatalog error = ErrorCatalog.ofCode(exception.getCode());
-
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
+        return handleException(exception, error);
     }
 
-    private ResponseEntity<Object> handleException(Exception exception, String code, ErrorCatalog error) {
+    private ResponseEntity<Object> handleException(Exception exception, ErrorCatalog error) {
         printMessageInLog(error.getMessage(), exception, error.getSeverity());
         return ResponseEntity.status(error.getHttpStatus()).body(error.getMessage());
     }
