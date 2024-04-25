@@ -7,6 +7,7 @@ import com.inditex.endpoint.adapter.out.mapper.PriceMapper;
 import jakarta.validation.constraints.PositiveOrZero;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -23,12 +24,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("prices/v1")
-@AllArgsConstructor
 public class PriceRestController {
 
 	private static final Logger LOG = LoggerFactory.getLogger(PriceRestController.class);
 
-	private final PriceService priceService;
+	@Autowired
+	private PriceService priceService;
 
 	@GetMapping(value = "/price", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<PriceResponseDto> findPrice(

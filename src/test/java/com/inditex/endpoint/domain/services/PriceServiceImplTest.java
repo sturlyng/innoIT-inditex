@@ -11,6 +11,7 @@ import org.mockito.Mock;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -36,9 +37,9 @@ public class PriceServiceImplTest extends BaseTest {
     @Test
     void testFindPriceGettingSpecialPriceByPriority() throws PriceNotFoundException {
 
-        List<Price> prices = createPriceList();
+        Price expectedPrice = createPrice();
 
-        when(priceRepository.findPrices(any(LocalDateTime.class), anyInt(), anyInt())).thenReturn(prices);
+        when(priceRepository.findPrice(any(LocalDateTime.class), anyInt(), anyInt())).thenReturn(Optional.of(expectedPrice));
 
         Price price = priceService.findPrice(SPECIAL_LOCAL_DATE_TIME, PRODUCT_ID, BRAND_ID);
 
@@ -49,39 +50,24 @@ public class PriceServiceImplTest extends BaseTest {
         assertEquals(SPECIAL_END_LOCAL_DATE_TIME, price.getEndDate());
         assertEquals(14.1, price.getPrice());
 
-        verify(priceRepository, times(1)).findPrices(SPECIAL_LOCAL_DATE_TIME, PRODUCT_ID, BRAND_ID);
+        verify(priceRepository, times(1)).findPrice(SPECIAL_LOCAL_DATE_TIME, PRODUCT_ID, BRAND_ID);
     }
 
     @Test
     void testFindPriceWhenPriceNotFound() {
 
-        when(priceRepository.findPrices(any(LocalDateTime.class), anyInt(), anyInt())).thenReturn(new ArrayList<>());
+        when(priceRepository.findPrice(any(LocalDateTime.class), anyInt(), anyInt())).thenReturn(Optional.empty());
 
         assertThrows(PriceNotFoundException.class, () -> {
             priceService.findPrice(SPECIAL_LOCAL_DATE_TIME, PRODUCT_ID, BRAND_ID);
         });
 
-        verify(priceRepository, times(1)).findPrices(SPECIAL_LOCAL_DATE_TIME, PRODUCT_ID, BRAND_ID);
+        verify(priceRepository, times(1)).findPrice(SPECIAL_LOCAL_DATE_TIME, PRODUCT_ID, BRAND_ID);
     }
 
-    private List<Price> createPriceList() {
-        List<Price> prices = new ArrayList<>();
+    private Price createPrice() {
 
-        prices.add(
-                Price.builder()
-                        .id(1)
-                        .brandId(BRAND_ID)
-                        .startDate(NORMAL_START_LOCAL_DATE_TIME)
-                        .endDate(NORMAL_END_LOCAL_DATE_TIME)
-                        .priceList(1)
-                        .productId(PRODUCT_ID)
-                        .priority(0)
-                        .price(10.1)
-                        .curr("EUR")
-                        .build());
-
-        prices.add(
-                Price.builder()
+        return Price.builder()
                         .id(2)
                         .brandId(BRAND_ID)
                         .startDate(SPECIAL_START_LOCAL_DATE_TIME)
@@ -91,9 +77,7 @@ public class PriceServiceImplTest extends BaseTest {
                         .priority(1)
                         .price(14.1)
                         .curr("EUR")
-                        .build());
-
-        return prices;
+                        .build();
     }
 
 }
