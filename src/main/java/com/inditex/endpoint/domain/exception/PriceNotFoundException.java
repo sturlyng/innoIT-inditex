@@ -2,8 +2,6 @@ package com.inditex.endpoint.domain.exception;
 
 import lombok.Getter;
 
-import java.io.Serial;
-
 @Getter
 public class PriceNotFoundException extends RuntimeException {
 

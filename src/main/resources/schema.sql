@@ -10,3 +10,5 @@ CREATE TABLE prices (
     curr VARCHAR(3) NOT NULL,
     PRIMARY KEY (id)
 );
+
+CREATE INDEX idx_prices_product_brand ON prices (product_id, brand_id);

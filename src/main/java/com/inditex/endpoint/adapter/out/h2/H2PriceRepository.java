@@ -14,7 +14,9 @@ import com.inditex.endpoint.domain.exception.PriceNotFoundException;
 import com.inditex.endpoint.domain.repositories.PriceRepository;
 
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Repository;
 
+@Repository
 @AllArgsConstructor
 public class H2PriceRepository implements PriceRepository {
 	
