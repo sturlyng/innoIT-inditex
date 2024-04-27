@@ -9,8 +9,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -23,8 +21,6 @@ public class PriceServiceImplTest extends BaseTest {
     public static final LocalDateTime SPECIAL_LOCAL_DATE_TIME = LocalDateTime.of(2024, 04, 01, 00, 00, 00);
     public static final LocalDateTime SPECIAL_START_LOCAL_DATE_TIME = LocalDateTime.of(2024, 04, 01, 00, 00, 00);
     public static final LocalDateTime SPECIAL_END_LOCAL_DATE_TIME = LocalDateTime.of(2024, 04, 01, 00, 59, 59);
-    public static final LocalDateTime NORMAL_START_LOCAL_DATE_TIME = LocalDateTime.of(2024, 01, 1, 00, 00, 00);
-    public static final LocalDateTime NORMAL_END_LOCAL_DATE_TIME = LocalDateTime.of(2024, 12, 31, 11, 59, 59);
     public static final Integer PRODUCT_ID = 1;
     public static final Integer BRAND_ID = 1;
 
