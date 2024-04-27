@@ -5,15 +5,18 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "prices")
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Price implements Serializable {
 
 	@Serial
