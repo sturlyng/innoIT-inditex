@@ -2,7 +2,7 @@ package com.inditex.endpoint.domain.entities;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 import jakarta.persistence.*;
 
@@ -30,10 +30,10 @@ public class Price implements Serializable {
     private Integer brandId;
 	
 	@Column(nullable = false, name = "start_date")
-    private LocalDateTime startDate;
+    private Instant startDate;
 	
 	@Column(nullable = false, name = "end_date")
-    private LocalDateTime endDate;
+    private Instant endDate;
 	
 	@Column(nullable = false, name = "price_list")
     private Integer priceList;

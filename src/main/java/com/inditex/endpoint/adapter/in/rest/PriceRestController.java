@@ -1,6 +1,6 @@
 package com.inditex.endpoint.adapter.in.rest;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 import com.inditex.endpoint.adapter.out.dto.PriceResponseDto;
 import com.inditex.endpoint.adapter.out.mapper.PriceMapper;
@@ -16,7 +16,6 @@ import com.inditex.endpoint.domain.services.PriceService;
 import com.inditex.endpoint.domain.entities.Price;
 import com.inditex.endpoint.domain.exception.PriceNotFoundException;
 
-import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,7 +32,7 @@ public class PriceRestController {
 
 	@GetMapping(value = "/price", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<PriceResponseDto> findPrice(
-			@RequestParam LocalDateTime applicationDate,
+			@RequestParam Instant applicationDate,
 			@RequestParam @PositiveOrZero Integer productId,
 			@RequestParam @PositiveOrZero Integer brandId) throws PriceNotFoundException {
 
