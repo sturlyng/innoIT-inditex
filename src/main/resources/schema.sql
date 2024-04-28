@@ -6,7 +6,7 @@ CREATE TABLE prices (
     price_list INTEGER NOT NULL,
     product_id INTEGER NOT NULL,
     priority_order INTEGER NOT NULL,
-    price DOUBLE NOT NULL,
+    price NUMERIC(20, 2) NOT NULL,
     curr VARCHAR(3) NOT NULL,
     PRIMARY KEY (id)
 );

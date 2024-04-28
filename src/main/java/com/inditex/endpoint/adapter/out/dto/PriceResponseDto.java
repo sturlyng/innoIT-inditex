@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.time.Instant;
 
 @NoArgsConstructor
@@ -23,6 +24,6 @@ public class PriceResponseDto {
 
 	private Instant endDate;
 	
-	private Double price;
+	private BigDecimal price;
 	
 }
