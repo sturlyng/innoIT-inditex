@@ -27,18 +27,9 @@ public class GlobalExceptionHandler {
 
     private void printMessageInLog(String message, Exception exception, Severity severity) {
         switch (severity) {
-            case CRITICAL:
-                LOG.error(message, exception);
-                break;
-            case ERROR:
-                LOG.error(message, exception);
-                break;
-            case WARNING:
-                LOG.warn(message, exception);
-                break;
-            default:
-                LOG.info(message, exception);
-                break;
+            case CRITICAL, ERROR -> LOG.error(message, exception);
+            case WARNING -> LOG.warn(message, exception);
+            default -> LOG.info(message, exception);
         }
     }
 

@@ -1,6 +1,6 @@
 package com.inditex.endpoint.domain.services;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 import com.inditex.endpoint.domain.entities.Price;
 import com.inditex.endpoint.domain.exception.ErrorCatalog;
@@ -17,7 +17,7 @@ public class PriceServiceImpl implements PriceService {
 	private PriceRepository priceRepository;
 
 	@Override
-	public Price findPrice(LocalDateTime applicationDate, Integer productId, Integer brandId)
+	public Price findPrice(Instant applicationDate, Integer productId, Integer brandId)
 			throws PriceNotFoundException {
 		return priceRepository.findPrice(applicationDate, productId, brandId)
 				.orElseThrow(() -> new PriceNotFoundException(ErrorCatalog.PRICE_NOT_FOUND.getCode(),

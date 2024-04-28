@@ -5,7 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,9 +19,9 @@ public class PriceResponseDto {
 	
 	private Integer priceList;
 
-	private LocalDateTime startDate;
+	private Instant startDate;
 
-	private LocalDateTime endDate;
+	private Instant endDate;
 	
 	private Double price;
 	
