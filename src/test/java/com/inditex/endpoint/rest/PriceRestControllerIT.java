@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import java.math.BigDecimal;
 import java.time.Instant;
 import java.time.LocalDateTime;
 
@@ -40,7 +41,7 @@ public class PriceRestControllerIT extends BaseIntegratedTest {
 		assertEquals(1, responseBody.getPriceList());
 		assertEquals(toInstantSpain(LocalDateTime.parse("2020-06-14T00:00:00")), responseBody.getStartDate());
 		assertEquals(toInstantSpain(LocalDateTime.parse("2020-12-31T23:59:59")), responseBody.getEndDate());
-		assertEquals(35.50, responseBody.getPrice());
+		assertEquals(new BigDecimal("35.50"), responseBody.getPrice());
 
 	}
 
@@ -60,7 +61,7 @@ public class PriceRestControllerIT extends BaseIntegratedTest {
 		assertEquals(2, responseBody.getPriceList());
 		assertEquals(toInstantSpain(LocalDateTime.parse("2020-06-14T15:00:00")), responseBody.getStartDate());
 		assertEquals(toInstantSpain(LocalDateTime.parse("2020-06-14T18:30:00")), responseBody.getEndDate());
-		assertEquals(25.45, responseBody.getPrice());
+		assertEquals(new BigDecimal("25.45"), responseBody.getPrice());
 
 	}
 
@@ -80,7 +81,7 @@ public class PriceRestControllerIT extends BaseIntegratedTest {
 		assertEquals(1, responseBody.getPriceList());
 		assertEquals(toInstantSpain(LocalDateTime.parse("2020-06-14T00:00:00")), responseBody.getStartDate());
 		assertEquals(toInstantSpain(LocalDateTime.parse("2020-12-31T23:59:59")), responseBody.getEndDate());
-		assertEquals(35.50, responseBody.getPrice());
+		assertEquals(new BigDecimal("35.50"), responseBody.getPrice());
 
 	}
 
@@ -100,7 +101,7 @@ public class PriceRestControllerIT extends BaseIntegratedTest {
 		assertEquals(3, responseBody.getPriceList());
 		assertEquals(toInstantSpain(LocalDateTime.parse("2020-06-15T00:00:00")), responseBody.getStartDate());
 		assertEquals(toInstantSpain(LocalDateTime.parse("2020-06-15T11:00:00")), responseBody.getEndDate());
-		assertEquals(30.50, responseBody.getPrice());
+		assertEquals(new BigDecimal("30.50"), responseBody.getPrice());
 
 	}
 
@@ -120,7 +121,7 @@ public class PriceRestControllerIT extends BaseIntegratedTest {
 		assertEquals(4, responseBody.getPriceList());
 		assertEquals(toInstantSpain(LocalDateTime.parse("2020-06-15T16:00:00")), responseBody.getStartDate());
 		assertEquals(toInstantSpain(LocalDateTime.parse("2020-12-31T23:59:59")), responseBody.getEndDate());
-		assertEquals(38.95, responseBody.getPrice());
+		assertEquals(new BigDecimal("38.95"), responseBody.getPrice());
 
 	}
 
@@ -140,7 +141,7 @@ public class PriceRestControllerIT extends BaseIntegratedTest {
 		assertEquals(2, responseBody.getPriceList());
 		assertEquals(toInstantSpain(LocalDateTime.parse("2020-06-14T15:00:00")), responseBody.getStartDate());
 		assertEquals(toInstantSpain(LocalDateTime.parse("2020-06-14T18:30:00")), responseBody.getEndDate());
-		assertEquals(25.45, responseBody.getPrice());
+		assertEquals(new BigDecimal("25.45"), responseBody.getPrice());
 
 	}
 
@@ -160,7 +161,7 @@ public class PriceRestControllerIT extends BaseIntegratedTest {
 		assertEquals(1, responseBody.getPriceList());
 		assertEquals(toInstantSpain(LocalDateTime.parse("2020-06-14T00:00:00")), responseBody.getStartDate());
 		assertEquals(toInstantSpain(LocalDateTime.parse("2020-12-31T23:59:59")), responseBody.getEndDate());
-		assertEquals(35.50, responseBody.getPrice());
+		assertEquals(new BigDecimal("35.50"), responseBody.getPrice());
 
 	}
 
@@ -180,7 +181,7 @@ public class PriceRestControllerIT extends BaseIntegratedTest {
 		assertEquals(2, responseBody.getPriceList());
 		assertEquals(toInstantSpain(LocalDateTime.parse("2020-06-14T15:00:00")), responseBody.getStartDate());
 		assertEquals(toInstantSpain(LocalDateTime.parse("2020-06-14T18:30:00")), responseBody.getEndDate());
-		assertEquals(25.45, responseBody.getPrice());
+		assertEquals(new BigDecimal("25.45"), responseBody.getPrice());
 
 	}
 

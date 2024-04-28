@@ -2,6 +2,7 @@ package com.inditex.endpoint.domain.entities;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.Instant;
 
 import jakarta.persistence.*;
@@ -44,8 +45,8 @@ public class Price implements Serializable {
 	@Column(nullable = false, name = "priority_order")
     private Integer priority;
 	
-	@Column(nullable = false, name = "price")
-    private Double price;
+	@Column(nullable = false, name = "price", precision = 20, scale = 2)
+    private BigDecimal price;
 	
 	@Column(nullable = false, name = "curr")
     private String curr;
