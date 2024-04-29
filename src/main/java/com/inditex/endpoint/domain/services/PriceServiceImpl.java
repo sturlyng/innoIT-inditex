@@ -8,6 +8,7 @@ import com.inditex.endpoint.domain.exception.PriceNotFoundException;
 import com.inditex.endpoint.domain.repositories.PriceRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -17,6 +18,7 @@ public class PriceServiceImpl implements PriceService {
 	private PriceRepository priceRepository;
 
 	@Override
+	@Cacheable("findPrice")
 	public Price findPrice(Instant applicationDate, Integer productId, Integer brandId)
 			throws PriceNotFoundException {
 		return priceRepository.findPrice(applicationDate, productId, brandId)
