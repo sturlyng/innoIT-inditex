@@ -1,8 +1,8 @@
-package com.inditex.endpoint.domain.services;
+package com.inditex.endpoint.application.port;
 
 import java.time.Instant;
 
-import com.inditex.endpoint.domain.entities.Price;
+import com.inditex.endpoint.domain.model.Price;
 import com.inditex.endpoint.domain.exception.PriceNotFoundException;
 import org.springframework.stereotype.Service;
 

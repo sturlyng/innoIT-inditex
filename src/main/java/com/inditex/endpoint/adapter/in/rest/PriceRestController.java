@@ -12,8 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
-import com.inditex.endpoint.domain.services.PriceService;
-import com.inditex.endpoint.domain.entities.Price;
+import com.inditex.endpoint.application.port.PriceService;
+import com.inditex.endpoint.domain.model.Price;
 import com.inditex.endpoint.domain.exception.PriceNotFoundException;
 
 import org.springframework.web.bind.annotation.GetMapping;

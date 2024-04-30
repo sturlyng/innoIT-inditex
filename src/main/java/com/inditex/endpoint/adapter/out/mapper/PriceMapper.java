@@ -1,7 +1,7 @@
 package com.inditex.endpoint.adapter.out.mapper;
 
 import com.inditex.endpoint.adapter.out.dto.PriceResponseDto;
-import com.inditex.endpoint.domain.entities.Price;
+import com.inditex.endpoint.domain.model.Price;
 
 public class PriceMapper {
 	

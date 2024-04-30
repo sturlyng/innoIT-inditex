@@ -1,4 +1,4 @@
-package com.inditex.endpoint.domain.entities;
+package com.inditex.endpoint.domain.model;
 
 import java.io.Serial;
 import java.io.Serializable;

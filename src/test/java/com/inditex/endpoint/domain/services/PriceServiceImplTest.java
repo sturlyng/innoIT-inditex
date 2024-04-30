@@ -1,9 +1,10 @@
 package com.inditex.endpoint.domain.services;
 
 import com.inditex.endpoint.BaseTest;
-import com.inditex.endpoint.domain.entities.Price;
+import com.inditex.endpoint.application.services.PriceServiceImpl;
+import com.inditex.endpoint.domain.model.Price;
 import com.inditex.endpoint.domain.exception.PriceNotFoundException;
-import com.inditex.endpoint.domain.repositories.PriceRepository;
+import com.inditex.endpoint.application.port.PriceRepository;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;

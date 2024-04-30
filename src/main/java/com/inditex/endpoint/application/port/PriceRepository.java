@@ -1,4 +1,4 @@
-package com.inditex.endpoint.domain.repositories;
+package com.inditex.endpoint.application.port;
 
 import java.time.Instant;
 import java.util.Optional;
@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.inditex.endpoint.domain.entities.Price;
+import com.inditex.endpoint.domain.model.Price;
 import org.springframework.stereotype.Repository;
 
 @Repository
